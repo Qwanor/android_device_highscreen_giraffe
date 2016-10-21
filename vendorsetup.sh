@@ -1,0 +1,2 @@
+add_lunch_combo cm_giraffe-userdebug
+add_lunch_combo cm_giraffe-eng
