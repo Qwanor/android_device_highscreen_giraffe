@@ -17,11 +17,8 @@
         available value: true (default), false
 
     ===== load SLP profile automatically based on PLMN =====
-    mcc (optional):
-        auto configure the supl_profile if the current MCC on DUT are the same as mcc parameter you specified and auto_profile_enable is enabled
-
     mcc_mnc (optional):
-        auto configure the supl_profile if the current MCC and MNC on DUT are the same as mcc_mnc paramter you specified and auto_profile_enable is enabled
+        auto configure the supl_profile if the current MCC and MNC on DUT are the same as mcc_mnc paramter you specified
 
     supl_version (optional):
         auto configure supl_version if above mcc_mnc condition is met
@@ -69,8 +66,8 @@
   <!-- GOOGLE-->
   <supl_profile name="GOOGLE"
       addr="supl.google.com"
-      port="7275"
-      tls="true"
+      port="7276"
+      tls="false"
   />
 
   <!-- GOOGLE-->
@@ -78,6 +75,114 @@
       addr="supl.google.com"
       port="7276"
       tls="false"
+  />
+
+  <!-- GOOGLE-->
+  <supl_profile name="GOOGLE IP"
+      addr="173.194.72.192"
+      port="7276"
+      tls="false"
+  />
+
+  <!-- Spirent Lab -->
+  <supl_profile name="Spirent"
+      addr="www.spirent-lcs.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- R&S Lab -->
+  <supl_profile name="RnS"
+      addr="slp.rs.de"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- CMCC Lab -->
+  <supl_profile name="CMCC Lab"
+      addr="218.206.176.50"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- Andrew Lab -->
+  <supl_profile name="Andrew"
+      addr="slp1acva.andrew.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- Ericsson  Lab -->
+  <supl_profile name="Ericsson"
+      addr="172.22.1.100"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- Ericsson  Lab FQDN -->
+  <supl_profile name="Ericsson FQDN"
+      addr="mvtvltegmpc.naladmz.ericsson.ca"
+      port="7275"
+      tls="true"
+  />
+  
+  <!-- Ericsson  Lab FQDN 2 -->
+  <supl_profile name="Ericsson FQDN 2"
+      addr="mvtv-broadcom.naladmz.ericsson.ca"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- ORANGE -->
+  <supl_profile name="ORANGE"
+      addr="agpss.orange.fr"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- CMCC-->
+  <supl_profile name="CMCC"
+      addr="221.176.0.55"
+      port="7275"
+      tls="true"
+      app_id="ap0004"
+      provider_id="221.176.0.55"
+      default_apn="CMCC WAP"
+      optional_apn="CMNET"
+      optional_apn_2=""
+      address_type="IPv4address:port"
+  />
+
+  <!-- Telstra -->
+  <supl_profile name="Telstra"
+      addr="agps.supl.telstra.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- CHUAN HWA -->
+  <supl_profile name="Chunghwa"
+      addr="10.1.101.137"
+      port="8025"
+      tls="false"
+  />
+
+  <!-- T-Mobile -->
+  <supl_profile name="T-Mobile"
+      addr="lbs.geo.t-mobile.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- Vodafone -->
+  <supl_profile name="Vodafone"
+      addr="supl.vodafone.com"
+      port="7275"
+      tls="true"
+      mcc_mnc="22010"
+      supl_version="2"
+      tls_version="1"
+      sha_version="0"
   />
 
   <!-- Test 1 -->
@@ -100,17 +205,6 @@
       supl_version="2"
       tls_version="1"
       sha_version="0"
-  />
-
-  <!-- Test 3 -->
-  <supl_profile name="Test 3"
-      addr="127.0.0.1"
-      port="7276"
-      tls="false"
-      mcc="998"
-      supl_version="1"
-      tls_version="2"
-      sha_version="1"
   />
 
   <!-- cdma_profile
@@ -315,21 +409,6 @@
         enable/disable the AGPS certification installation from SDCard
         available value: true (default), false
 
-    auto_profile_enable:
-        enable/disable the auto profile configuration based on current mcc or mcc_mnc specified in cur_supl_profile or supl_profile
-        available value: true (default), false
-
-    ut2:
-        customize the SUPL UT2 timer
-        available value: 1~60, default value is 11 (OMA spec)
-
-    ut3:
-        customize the SUPL UT3 timer
-        available value: 1~60, default value is 10 (OMA spec)
-
-    sync_to_slp:
-        sync the AGPS setting (ex: SUPL profile, SUPL version, TLS version) from AGPSD to SLPD in runtime
-        available value: true, false (default)
   -->
   <up_setting
     ca_enable="false"
@@ -350,14 +429,10 @@
     qop_loc_age="0"
     qop_delay="0"
     udp_port_enable="false"
-    dedicated_apn_enable="false"
+    dedicated_apn_enable="true"
     preferred_2g3g_cell_age="300"
     lpp_enable="true"
     cert_from_sdcard="false"
-    auto_profile_enable="false"
-    ut2="11"
-    ut3="10"
-    sync_to_slp="false"
   />
 
 </mtk_agps_profiles>
