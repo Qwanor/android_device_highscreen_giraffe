@@ -105,19 +105,19 @@ PRODUCT_PACKAGES += \
 USE_CUSTOM_AUDIO_POLICY := 1
 
 # FMRadio
-  PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
 	FMRadio
 
 # Camera
-  PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
 	Snap
 
 # Web browser
-  PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
 	Gello
 
 # Wifi
- PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     dhcpcd.conf \
